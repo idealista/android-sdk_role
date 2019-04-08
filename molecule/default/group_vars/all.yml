@@ -1,0 +1,12 @@
+---
+android_sdk_versions:
+  - android-28
+
+android_sdk_system_images:
+  - system-images;android-28;google_apis;x86
+
+android_sdk_emulators:
+  - name: API_28
+    image: system-images;android-28;google_apis;x86
+    skin: Nexus 5X
+    sdcard: 1024M

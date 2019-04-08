@@ -1,0 +1,20 @@
+---
+language: python
+python: "2.7.12"
+sudo: required
+
+env:
+  - ansible_version: 2.7.9.0
+
+services:
+  - docker
+
+install:
+  - pip install pipenv
+  - pipenv install -r test-requirements.txt --python 2.7
+
+script:
+  - pipenv run molecule test -s all
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

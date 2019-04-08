@@ -1,0 +1,14 @@
+---
+android_sdk_dependencies:
+  - unzip
+  - libgl1-mesa-dev
+  - lib32ncurses5
+  - lib32stdc++6
+  - lib32z1
+  - libpulse0
+  - adb
+
+android_sdk_sdkmanager: "{{ android_sdk_install_dir }}/tools/bin/sdkmanager"
+android_sdk_avdmanager: "{{ android_sdk_install_dir }}/tools/bin/avdmanager"
+
+android_sdk_envvars_path: /etc/profile.d/

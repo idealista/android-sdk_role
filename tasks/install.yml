@@ -1,0 +1,41 @@
+---
+- name: Android SDK | Install dependencies
+  apt:
+    name: "{{ android_sdk_dependencies }}"
+    state: present
+    install_recommends: true
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Android SDK | Ensure Android SDK group
+  group:
+    name: "{{ android_sdk_group }}"
+
+- name: Android SDK | Ensure Android SDK user
+  user:
+    name: "{{ android_sdk_user }}"
+    group: "{{ android_sdk_group }}"
+    home: "{{ android_sdk_user_home | default(omit) }}"
+    shell: "{{ android_sdk_user_shell | default(omit) }}"
+
+- name: Android SDK | Ensure main android sdk root dirs exists
+  file:
+    path: "{{ android_sdk_install_dir }}"
+    mode: 0755
+    owner: "{{ android_sdk_user }}"
+    group: "{{ android_sdk_group }}"
+    state: directory
+
+- name: Android SDK | Download and extract zip
+  unarchive:
+    src: "{{ android_sdk_url }}/{{ android_sdk_package }}"
+    dest: "{{ android_sdk_install_dir }}"
+    owner: "{{ android_sdk_user }}"
+    group: "{{ android_sdk_group }}"
+    remote_src: true
+
+- name: Android SDK | Export environment variables
+  template:
+    src: androidhome.sh.j2
+    dest: "{{ android_sdk_envvars_path }}/androidhome.sh"
+    mode: 0755

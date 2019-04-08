@@ -1,0 +1,27 @@
+# Molecule managed
+
+---
+file:
+  {{ android_sdk_install_dir }}:
+    exists: true
+    filetype: directory
+  {{ android_sdk_sdkmanager }}:
+    exists: true
+    filetype: file
+  {{ android_sdk_avdmanager }}:
+    exists: true
+    filetype: file
+
+command:
+  echo $ANDROID_HOME:
+    exit-status: 0
+    stdout:
+      - {{ android_sdk_install_dir }}
+    stderr: []
+    timeout: 10000
+  echo $ANDROID_SDK_ROOT:
+    exit-status: 0
+    stdout:
+      - {{ android_sdk_install_dir }}
+    stderr: []
+    timeout: 10000

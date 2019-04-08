@@ -1,0 +1,27 @@
+---
+- name: Android SDK | Install build-tools
+  shell: 'yes | {{ android_sdk_sdkmanager }} "build-tools;{{ android_sdk_build_tools }}"'
+  changed_when: false
+
+- name: Android SDK | Install sdk-versions
+  shell: 'yes | {{ android_sdk_sdkmanager }} "platforms;{{ item }}"'
+  loop: "{{ android_sdk_versions }}"
+  changed_when: false
+
+- name: Android SDK | Install system-images
+  shell: 'yes | {{ android_sdk_sdkmanager }} "{{ item }}"'
+  loop: "{{ android_sdk_system_images }}"
+  changed_when: false
+
+- name: Android SDK | Create emulators
+  command: '{{ android_sdk_avdmanager }} create avd -n {{ item.name }} -k "{{ item.image }}" -c {{ item.sdcard }} --device "{{ item.skin }}" --force'
+  loop: "{{ android_sdk_emulators }}"
+  changed_when: false
+
+- name: Android SDK | Install emulator tool
+  command: '{{ android_sdk_sdkmanager }} "emulator"'
+  changed_when: false
+
+- name: Android SDK | Install platform-tools
+  command: '{{ android_sdk_sdkmanager }} "platform-tools"'
+  changed_when: false
