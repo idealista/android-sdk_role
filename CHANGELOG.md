@@ -3,12 +3,28 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
+
+## Added
+- *[PLATFORM-3582]- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
+
 ## [Unreleased](https://github.com/idealista/bitbucket-role/tree/develop)
+
+
+## Added
+- *[PLATFORM-3582]- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
 
 ## [1.1.0](https://github.com/idealista/bitbucket-role/tree/1.1.0)
 [Full Changelog](https://github.com/idealista/bitbucket-role/compare/1.0.0...1.1.0)
+
+## Added
+- *[PLATFORM-3582]- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
+
 ### Changed
 - *[#1](https://github.com/idealista/bitbucket-role/issues/1) bitbucket.properties can now be provided by playbooks* @jnogol
+
+
+## Added
+- *[PLATFORM-3582]- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
 
 ## [1.0.0](https://github.com/idealista/bitbucket-role/tree/1.0.0)
 - *First release*
